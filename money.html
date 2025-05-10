@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Money | Moving to Dallas</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="money">
+  <h1>Moving to Dallas Planner</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="housing.html">Housing</a>
+    <a href="plan-gear.html">Plan &amp; Gear</a>
+    <a href="money.html" class="active">Money</a>
+    <a href="life.html">Life in Dallas</a>
+  </nav>
+
+  <main>
+    <section id="budget-section">
+      <h2>Budget Tracker</h2>
+
+      <!-- add‐expense UI -->
+      <div class="add-item">
+        <input type="text" id="new-expense-category" placeholder="Category" />
+        <input type="number" id="new-expense-amount" placeholder="Amount ($)" />
+        <button id="add-expense">Add Expense</button>
+      </div>
+
+      <table id="budget-table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Estimated Cost ($)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Rent</td>
+            <td><input type="number" class="budget-input" value="2000" /></td>
+          </tr>
+          <tr>
+            <td>Utilities</td>
+            <td><input type="number" class="budget-input" value="150" /></td>
+          </tr>
+          <tr>
+            <td>Groceries</td>
+            <td><input type="number" class="budget-input" value="300" /></td>
+          </tr>
+          <tr>
+            <td>Furniture</td>
+            <td><input type="number" class="budget-input" value="600" /></td>
+          </tr>
+          <tr>
+            <td>Fun</td>
+            <td><input type="number" class="budget-input" value="200" /></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th>Total</th>
+            <th id="budget-total">$0</th>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

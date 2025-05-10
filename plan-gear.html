@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Move | Moving to Dallas</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="move">
+  <h1>Moving to Dallas Planner</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="housing.html">Housing</a>
+    <a href="plan-gear.html" class="active">The Move</a>
+    <a href="money.html">Money</a>
+    <a href="life.html">Life in Dallas</a>
+  </nav>
+  <main>
+    <!-- Timeline -->
+    <section id="timeline-section">
+      <h2>Timeline</h2>
+      <div class="filters">
+        <button class="filter-btn active" data-category="all">All</button>
+        <button class="filter-btn" data-category="housing">Housing</button>
+        <button class="filter-btn" data-category="work">Work</button>
+        <button class="filter-btn" data-category="personal">Personal</button>
+      </div>
+      <div class="timeline-grid">
+        <div class="task-card housing">
+          <h3>Book Apartment Tour</h3>
+          <p>May 12</p>
+          <span class="tag">🏠 Housing</span>
+        </div>
+        <div class="task-card housing">
+          <h3>Pack Dorm Room</h3>
+          <p>June 2</p>
+          <span class="tag">🏠 Housing</span>
+        </div>
+        <div class="task-card work">
+          <h3>Start New Job</h3>
+          <p>July 8</p>
+          <span class="tag">👩‍💼 Work</span>
+        </div>
+        <div class="task-card personal">
+          <h3>Explore Dallas</h3>
+          <p>July 15</p>
+          <span class="tag">💅 Personal</span>
+        </div>
+        <div class="task-card add-new" title="Add new task">
+          <span class="add-icon">+</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Checklist -->
+    <section id="checklist">
+      <h2>Checklist</h2>
+      <div class="add-item">
+        <input type="text" id="new-checklist-item" placeholder="Add new task">
+        <button id="add-checklist">Add</button>
+      </div>
+      <div id="progress-container">
+        <div id="progress-bar"></div>
+        <span id="progress-text">0% Complete</span>
+      </div>
+      <button class="toggle-section">Before the Move ⬇</button>
+      <ul class="checklist-section">
+        <li><label><input type="checkbox"> Book moving truck</label></li>
+        <li><label><input type="checkbox"> Find apartment</label></li>
+        <li><label><input type="checkbox"> Tour storage units</label></li>
+      </ul>
+      <button class="toggle-section">After the Move ⬇</button>
+      <ul class="checklist-section">
+        <li><label><input type="checkbox"> Pack up college room</label></li>
+        <li><label><input type="checkbox"> Submit change of address</label></li>
+        <li><label><input type="checkbox"> Decorate new apartment</label></li>
+      </ul>
+    </section>
+
+    <!-- Packing List -->
+    <section id="packing-section">
+      <h2>Packing List</h2>
+      <div class="add-item">
+        <input type="text" id="new-packing-item" placeholder="Add new item">
+        <button id="add-packing">Add</button>
+      </div>
+      <div class="packing-container">
+        <div class="packing-list">
+          <h3>To Pack</h3>
+          <ul id="to-pack">
+            <li>Air Mattress</li>
+            <li>Shower Caddy</li>
+            <li>Coffee Machine</li>
+            <li>Clothes</li>
+            <li>Kitchen Utensils</li>
+          </ul>
+        </div>
+        <div class="packing-list">
+          <h3>Packed</h3>
+          <ul id="packed"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+

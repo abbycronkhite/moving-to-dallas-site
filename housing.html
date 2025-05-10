@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Housing | Moving to Dallas</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="housing">
+  <h1>Moving to Dallas Planner</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="housing.html" class="active">Housing</a>
+    <a href="plan-gear.html">Plan &amp; Gear</a>
+    <a href="money.html">Money</a>
+    <a href="life.html">Life in Dallas</a>
+  </nav>
+  <main>
+    <!-- Neighborhoods Section -->
+    <section id="neighborhoods-section">
+      <h2>Neighborhoods</h2>
+      <div class="neighborhood-grid">
+        <div class="neighborhood-card">
+          <h3>Uptown</h3>
+          <p><strong>Price:</strong> $$$</p>
+          <p><strong>Vibe:</strong> Trendy, walkable, young professionals</p>
+          <ul>
+            <li>✅ Near restaurants and bars</li>
+            <li>✅ Katy Trail access</li>
+            <li>❌ Can be loud at night</li>
+          </ul>
+          <button class="view-map-btn" data-query="Uptown Dallas">View on Map</button>
+        </div>
+        <div class="neighborhood-card">
+          <h3>Oak Lawn</h3>
+          <p><strong>Price:</strong> $$</p>
+          <p><strong>Vibe:</strong> Artsy, diverse, laid back</p>
+          <ul>
+            <li>✅ More affordable</li>
+            <li>✅ Quieter than Uptown</li>
+            <li>❌ Older buildings</li>
+          </ul>
+          <button class="view-map-btn" data-query="Oak Lawn Dallas">View on Map</button>
+        </div>
+        <div class="neighborhood-card">
+          <h3>Highland Park</h3>
+          <p><strong>Price:</strong> $$$$</p>
+          <p><strong>Vibe:</strong> Upscale, quiet, family-friendly</p>
+          <ul>
+            <li>✅ Beautiful homes and parks</li>
+            <li>✅ Excellent safety</li>
+            <li>❌ Very expensive</li>
+          </ul>
+          <button class="view-map-btn" data-query="Highland Park Dallas">View on Map</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Map Section -->
+    <section id="map-section">
+      <h2>Interactive Map</h2>
+      <div class="map-search">
+        <input type="text" id="map-search" placeholder="Search… e.g. 'coffee shop'" />
+        <button id="map-search-btn">Go</button>
+      </div>
+      <div class="map-buttons">
+        <button class="map-switch" data-query="Coffee Shops Uptown Dallas">Coffee</button>
+        <button class="map-switch" data-query="Yoga Studios Uptown Dallas">Yoga</button>
+        <button class="map-switch" data-query="Brunch Spots Uptown Dallas">Brunch</button>
+      </div>
+      <div class="map-container">
+        <iframe
+          id="dallas-map"
+          src="https://maps.google.com/maps?q=uptown%20dallas&output=embed"
+          width="100%" height="350" style="border:0"
+          allowfullscreen loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </section>
+
+    <!-- Apartment Ranking Section -->
+    <section id="apartments-section">
+      <h2>Rank Your Apartments</h2>
+      <div class="add-item">
+        <input type="text" id="new-apartment-item" placeholder="Add new apartment" />
+        <button id="add-apartment">Add</button>
+      </div>
+      <ul id="apartment-list">
+        <li draggable="true">
+          <span class="rank-number"></span>
+          <a href="https://www.jordandallas.com" target="_blank">The Jordan | $1,950 | Uptown</a>
+        </li>
+        <li draggable="true">
+          <span class="rank-number"></span>
+          <a href="https://livethekaty.com" target="_blank">The Katy | $2,100 | Victory Park</a>
+        </li>
+        <li draggable="true">
+          <span class="rank-number"></span>
+          <a href="https://www.mlinetower.com" target="_blank">The M-Line Tower | $1,875 | Oak Lawn</a>
+        </li>
+        <li draggable="true">
+          <span class="rank-number"></span>
+          <a href="https://www.drakestoneapts.com" target="_blank">The Drakestone | $2,250 | Downtown</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
+
+

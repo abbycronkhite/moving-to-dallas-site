@@ -1,6 +1,454 @@
+/* ─── GLOBAL ───────────────────────────────────────────────────────────── */
 body {
     font-family: sans-serif;
     background-color: #f4f4f4;
     margin: 2rem;
+    line-height: 1.6;
   }
+  h1, h2 {
+    margin-bottom: 0.5rem;
+  }
+  nav {
+    margin-bottom: 2rem;
+  }
+  nav a {
+    margin-right: 1rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #333;
+    background-color: #dcdcdc;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+  nav a.active,
+  nav a:hover {
+    background-color: #bbb;
+  }
+  main {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* ─── PAGE-SPECIFIC: MONEY PAGE ───────────────────────────────────────── */
+  body.money #budget-section {
+    margin-top: 1rem;
+  }
+  body.money #budget-section h2 {
+    font-size: 1.5rem;
+  }
+  body.money .add-item {
+    margin-bottom: 1rem;
+  }
+  body.money .add-item input {
+    padding: 0.4rem;
+    margin-right: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  body.money .add-item button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background: #70c77c;
+    color: white;
+    cursor: pointer;
+  }
+  body.money #budget-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  body.money #budget-table th,
+  body.money #budget-table td {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  body.money .budget-input {
+    width: 100%;
+    padding: 0.3rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  body.money tfoot th {
+    font-size: 1.1rem;
+  }
+  body.money #budget-total {
+    text-align: right;
+  }
+  
+  /* ─── PAGE-SPECIFIC: HOME PAGE ────────────────────────────────────────── */
+  body.home {
+    margin: 0;
+    padding: 0;
+  }
+  body.home #hero {
+    background-image: url('images/skyline-dallas.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  body.home .hero-overlay {
+    background: rgba(0,0,0,0.4);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    color: #fff;
+  }
+  body.home .hero-overlay h2 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+  body.home .hero-overlay p {
+    font-size: 1.25rem;
+  }
+  body.home .home-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
+    gap: 1rem;
+    margin: 2rem;
+  }
+  body.home .home-links .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: transform 0.2s;
+  }
+  body.home .home-links .card:hover {
+    transform: translateY(-4px);
+  }
+  footer {
+    margin-top: 2rem;
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  /* ─── PAGE-SPECIFIC: MOVE PAGE ────────────────────────────────────────── */
+  body.move .filters {
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 0.5rem;
+  }
+  body.move .filter-btn {
+    padding: 0.4rem 0.8rem;
+    border: none;
+    background: #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  body.move .filter-btn.active {
+    background: #70c77c;
+    color: white;
+  }
+  body.move .timeline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+  body.move .task-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+  body.move .task-card:hover {
+    transform: translateY(-2px);
+  }
+  body.move .task-card.add-new {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #70c77c;
+    cursor: pointer;
+  }
+  body.move .task-card.hidden {
+    display: none !important;
+  }
+  body.move #progress-container {
+    margin: 1rem 0;
+    background: #eee;
+    border-radius: 8px;
+    position: relative;
+    height: 24px;
+    overflow: hidden;
+  }
+  body.move #progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #70c77c;
+    transition: width 0.3s;
+  }
+  body.move #progress-text {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+    line-height: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  body.move .toggle-section {
+    display: block;
+    margin: 1rem 0 0.5rem;
+    background: #dcdcdc;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  body.move .checklist-section {
+    list-style: none;
+    padding-left: 1rem;
+    margin: 0 0 1rem;
+  }
+  body.move .checklist-section li {
+    margin-bottom: 0.5rem;
+  }
+  body.move .packing-container {
+    display: flex;
+    gap: 1rem;
+  }
+  body.move .packing-list {
+    flex: 1;
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  }
+  body.move .packing-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  body.move .packing-list li {
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+  }
+  
+  /* ─── PAGE-SPECIFIC: HOUSING PAGE ──────────────────────────────────────── */
+  body.housing #neighborhoods-section .neighborhood-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  body.housing .neighborhood-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+  body.housing .neighborhood-card:hover {
+    transform: translateY(-3px);
+  }
+  body.housing #apartment-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+  }
+  body.housing #apartment-list li {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    background: white;
+    border-radius: 4px;
+    cursor: move;
+    transition: background 0.2s;
+  }
+  body.housing #apartment-list li.over {
+    border-top: 3px solid #70c77c;
+  }
+  body.housing #apartment-list .rank-number {
+    width: 1.5rem;
+    text-align: right;
+    margin-right: 0.5rem;
+    font-weight: bold;
+  }
+  
+  /* ─── CALENDAR ───────────────────────────────────────────────────────── */
+  .calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  .calendar-table th,
+  .calendar-table td {
+    width: 14.28%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    position: relative;
+  }
+  .calendar-day.today {
+    background: #70c77c;
+    color: white;
+  }
+  .event-item {
+    font-size: 0.7rem;
+    color: #e74c3c;
+    background: rgba(231,76,60,0.1);
+    padding: 2px 4px;
+    border-radius: 3px;
+    margin-top: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .popup {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    z-index: 1001;
+    display: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+  
+  /* ─── TABS ───────────────────────────────────────────────────────────── */
+  .tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .tabs button {
+    padding: 0.5rem 1rem;
+    background: #ddd;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .tabs button.active {
+    background: #70c77c;
+    color: white;
+  }
+  
+  /* ─── MOOD-BOARD & LIGHTBOX ──────────────────────────────────────────── */
+  .masonry-grid {
+    column-count: 3;
+    column-gap: 1rem;
+  }
+  .masonry-item {
+    position: relative;
+    margin-bottom: 1rem;
+    break-inside: avoid;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s forwards;
+  }
+  @keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .masonry-item img {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+  }
+  .masonry-item .overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 0.5rem;
+    background: rgba(0,0,0,0.4);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .masonry-item:hover .overlay {
+    opacity: 1;
+  }
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  .lightbox.show {
+    display: flex;
+  }
+  .lightbox-img {
+    max-width: 90%;
+    max-height: 80%;
+  }
+  .lightbox .caption {
+    color: white;
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+  .lightbox .close {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  
+  /* ─── GUIDE PHOTOS ─────────────────────────────────────────────────── */
+  #map-photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  #map-photos img {
+    width: 100%;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  }
+  
+  /* ─── BUCKET LIST & TOOLTIP ─────────────────────────────────────────── */
+  #bucket-list {
+    list-style: none;
+    padding: 0;
+  }
+  #bucket-list li {
+    padding: 0.5rem 1rem;
+    background: white;
+    margin-bottom: 0.3rem;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    cursor: default;
+  }
+  #preview-tooltip {
+    position: absolute;
+    pointer-events: none;
+    display: none;
+    background: white;
+    padding: 0.5rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    z-index: 1001;
+  }
+  #preview-tooltip img {
+    max-width: 150px;
+    display: block;
+    margin-bottom: 0.3rem;
+    border-radius: 4px;
+  }
+  
+  
+  
+  
+  
   
